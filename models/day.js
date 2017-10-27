@@ -7,13 +7,13 @@ const daySchema = new mongoose.Schema({
   foodEaten: [ foodSchema ],
   exerciseDone: [ exerciseSchema ]
 });
-
+//
 daySchema.virtual('totals')
   .get(function getTotals() {
-    const calories = this.foodEaten.reduce((sum, food) => sum + food.calories, 0);
-    const protein = this.foodEaten.reduce((sum, food) => sum + food.protein, 0);
-    const fat = this.foodEaten.reduce((sum, food) => sum + food.fat, 0);
-    const carbs = this.foodEaten.reduce((sum, food) => sum + food.carbs, 0);
+    const calories = this.foodEaten.reduce((sum, food) => sum + food.calories * food.qty, 0);
+    const protein = this.foodEaten.reduce((sum, food) => sum + food.protein * food.qty, 0);
+    const fat = this.foodEaten.reduce((sum, food) => sum + food.fat * food.qty, 0);
+    const carbs = this.foodEaten.reduce((sum, food) => sum + food.carbs * food.qty, 0);
     return { calories, protein, fat, carbs };
   });
 

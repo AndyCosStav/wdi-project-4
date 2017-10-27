@@ -15,6 +15,7 @@
     "test": "yarn test:server && yarn test:client"
   },
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.1",
     "express": "^4.15.4",
     "jsonwebtoken": "^8.1.0",
@@ -29,6 +30,7 @@
     "urlencode": "^1.1.0"
   },
   "devDependencies": {
+    "axios": "^0.17.0",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-plugin-transform-class-properties": "^6.24.1",

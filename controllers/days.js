@@ -1,5 +1,11 @@
-function daysIndex(req, res) {
-  res.json(req.currentUser.days);
+const User = require('../models/user');
+
+function daysIndex(req, res, next) {
+  User
+    .find()
+    .exec()
+    .then(users => res.json(users))
+    .catch(next);
 }
 
 function daysShow(req, res) {
