@@ -1,19 +1,33 @@
 import React from 'react';
-import Axios from 'axios';
 import ReactDOM from 'react-dom';
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
+import Navbar from './components/utility/Navbar';
+
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+
+import FoodsNew from './components/foods/FoodsNew';
+
 
 class App extends React.Component {
 
-  componentDidMount() {
-    Axios
-      .get('/api/days')
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
-  }
-  
   render() {
     return (
-      <h1>WDI Project 4: MERN Stack App</h1>
+      <Router>
+        <div className="container">
+          <header>
+            <h1><Link to="/">LiftingLab 2.0</Link></h1>
+            <h2>Eat BIG Lift HEAVY</h2>
+            <Navbar />
+            <hr />
+          </header>
+          <main>
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+            <Route path="/searchFood" component={FoodsNew} />
+          </main>
+        </div>
+      </Router>
     );
   }
 }

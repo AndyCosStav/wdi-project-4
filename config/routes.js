@@ -7,8 +7,10 @@ const days = require('../controllers/days');
 const auth = require('../controllers/auth');
 
 
+
 router.route('/fatsecret')
   .get(fatsecret.search);
+
 
 router.route('/days')
   .get(days.index);
@@ -17,8 +19,8 @@ router.route('/days/:date')
   .get(secureRoute, days.show);
 
 router.route('/days/:date/food')
-  .get(secureRoute, foods.index)
-  .post(secureRoute, foods.create);
+  .get(secureRoute,foods.index)
+  .post(secureRoute,foods.create);
 
 router.route('/days/:date/food/:id')
   // .get(secureRoute, foods.show)
