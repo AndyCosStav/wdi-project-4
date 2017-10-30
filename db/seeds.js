@@ -11,12 +11,8 @@ const userData = [{
   passwordConfirmation: 'password',
   days: [
     {
-      date: {
-        year: 2017,
-        month: 'October',
-        day: 30
-      },
-      foodEaten: [{
+      date: '2017-10-25',
+      foodsEaten: [{
         meal: 'Breakfast',
         item: 'Eggs',
         calories: 120,

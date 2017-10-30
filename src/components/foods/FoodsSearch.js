@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Axios from 'axios';
 
 class FoodsSearch extends React.Component {
 
@@ -8,13 +8,17 @@ class FoodsSearch extends React.Component {
     search: ''
   }
 
-  handleChange = () => {
-    // update the search on state
+  handleChange = ({ target: { value }}) => {
+    this.setState({ search: value });
   }
 
-  handleSubmit = () => {
+  handleSubmit = e => {
+    e.preventDefault();
     // make Axios request to /api/fatsecret
-    // store results in state
+    Axios
+      .get(`/api/fatsecret?search=${this.state.search}`)
+      .then(res => this.setState({ foods: res.data }))
+      .catch(err => console.log(err));
   }
 
   addFood = (food) => {
@@ -23,6 +27,7 @@ class FoodsSearch extends React.Component {
   }
 
   render() {
+    console.log(this.state.foods);
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -41,13 +46,13 @@ class FoodsSearch extends React.Component {
                 <p>{food.calories}</p>
               </div>
               <div>
-                <p>{food.carbs}</p>
-                <p>{food.fat}</p>
-                <p>{food.protein}</p>
-                <p>{food.per}g</p>
+                <p>Carbs = {food.carbs}g</p>
+                <p>Fat = {food.fat}g</p>
+                <p>Protein = {food.protein}g</p>
+                <p>Per{food.per}g</p>
               </div>
               <div>
-                <button>FSU</button>
+                <button>Add</button>
               </div>
             </div>
           );
