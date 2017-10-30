@@ -11,7 +11,11 @@ const userData = [{
   passwordConfirmation: 'password',
   days: [
     {
-      date: '2017-10-27',
+      date: {
+        year: 2017,
+        month: 'October',
+        day: 30
+      },
       foodEaten: [{
         meal: 'Breakfast',
         item: 'Eggs',

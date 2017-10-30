@@ -1,0 +1,19 @@
+.FoodsNew {
+
+div {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid black;
+  margin-bottom: 10px;
+  div {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    p {
+      margin: 0;
+    }
+  }
+}
+
+
+}

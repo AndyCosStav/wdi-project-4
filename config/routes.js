@@ -5,15 +5,18 @@ const foods = require('../controllers/foods');
 const exercises = require('../controllers/exercises');
 const days = require('../controllers/days');
 const auth = require('../controllers/auth');
+const users = require('../controllers/users');
 
 
 
 router.route('/fatsecret')
   .get(fatsecret.search);
 
-
 router.route('/days')
-  .get(days.index);
+  .get(secureRoute, days.index);
+
+router.route('/days/new')
+  .put(secureRoute, users.update);
 
 router.route('/days/:date')
   .get(secureRoute, days.show);
