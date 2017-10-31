@@ -7,7 +7,7 @@ import '../../scss/components/foods/FoodsNew.scss';
 
 class FoodsNew extends React.Component {
   state = {
-    foodEaten: [],
+    food: {},
     date: ''
   }
 
@@ -17,19 +17,16 @@ class FoodsNew extends React.Component {
 
   addFood = chosenFood => {
     // receive food from search
-    this.setState(prevState => {
-      const foodEaten = prevState.foodEaten.concat(chosenFood);
-      return { foodEaten };
-    });
+    this.setState({ food: chosenFood });
   }
 
   handleSubmit = e => {
     e.preventDefault();
     // send form to `POST /api/days/:date/food`
-    Axios.post(`/api/days/${this.state.date}/foods`, this.state, {
+    Axios.post(`/api/days/${this.state.date}/foods`, { food: this.state.food, date: this.state.date }, {
       headers: { 'Authorization': `Bearer ${Auth.getToken()}` }
     })
-      .then(res => console.log('OUR FODDDS', res))
+      .then(res => console.log('OUR FODDDS', res)) // redirect to days show
       .catch(err => console.log(err));
   }
 
@@ -48,18 +45,7 @@ class FoodsNew extends React.Component {
           addFood={this.addFood}
           handleSubmit={this.handleSubmit}
         />
-        <section>
-          <ul>
-            {this.state.foodEaten.map((food, i) => <li style={{ width: '60%', display: 'flex', justifyContent: 'space-around', alignItems: 'center'}} key={i}>{food.name}
-              <p>Calories: {food.calories}Kcal</p>
-              <p>Protein: {food.protein}g</p>
-              <p>Carbs: {food.carbs}g</p>
-              <p>Fat: {food.fat}g</p>
-              <p> per: {food.per}g </p>
-            </li>)}
-          </ul>
-        </section>
-        <button onClick={this.handleSubmit}>Upload Foods</button>
+        <button onClick={this.handleSubmit}>Upload Food</button>
       </section>
     );
   }

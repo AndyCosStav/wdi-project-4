@@ -4,7 +4,6 @@ function daysIndex(req, res) {
 
 function daysShow(req, res) {
   const day = req.currentUser.days.find(day => day.date === req.params.date);
-  if(!day) return res.notFound();
   res.json(day);
 }
 

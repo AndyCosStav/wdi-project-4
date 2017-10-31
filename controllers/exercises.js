@@ -1,6 +1,6 @@
 function exercisesIndex(req, res) {
   const day = req.currentUser.days.find(day => day.date === req.params.date);
-  res.json(day.exerciseDone);
+  res.json(day.exercises);
 }
 
 function exercisesCreate(req, res, next) {
@@ -10,8 +10,8 @@ function exercisesCreate(req, res, next) {
     req.currentUser.days.push(day);
   }
 
-  const exercise = day.exerciseDone.create(req.body);
-  day.exerciseDone.push(exercise);
+  const exercise = day.exercises.create(req.body);
+  day.exercises.push(exercise);
 
   req.currentUser.save()
     .then(() => res.json(exercise))
@@ -20,7 +20,7 @@ function exercisesCreate(req, res, next) {
 
 function exercisesUpdate(req, res, next) {
   const day = req.currentUser.days.find(day => day.date === req.params.date);
-  const exercise = day.exerciseDone.id(req.params.id);
+  const exercise = day.exercises.id(req.params.id);
 
   Object.assign(exercise, req.body);
 
@@ -31,7 +31,7 @@ function exercisesUpdate(req, res, next) {
 
 function exercisesDelete(req, res, next) {
   const day = req.currentUser.days.find(day => day.date === req.params.date);
-  const exercise = day.exerciseDone.id(req.params.id);
+  const exercise = day.exercises.id(req.params.id);
   exercise.remove();
 
   req.currentUser.save()

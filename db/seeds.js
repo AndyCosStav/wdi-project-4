@@ -12,7 +12,7 @@ const userData = [{
   days: [
     {
       date: '2017-10-25',
-      foodsEaten: [{
+      foods: [{
         meal: 'Breakfast',
         item: 'Eggs',
         calories: 120,
@@ -21,7 +21,7 @@ const userData = [{
         carbs: 8,
         qty: 4
       }],
-      exerciseDone: [{
+      exercises: [{
         exercise: 'Bench Press',
         reps: 5,
         sets: 5,

@@ -1,11 +1,12 @@
 function foodsIndex(req, res) {
   const day = req.currentUser.days.find(day => day.date === req.params.date);
-  res.json(day.foodsEaten);
+  res.json(day.foods);
 }
-
+// ================
 function foodsCreate(req, res, next) {
   console.log('REQ CURENT USER', req.currentUser);
   console.log('REQ PARAMS', req.params);
+  console.log('REQ BODY', req.body);
   let day = req.currentUser.days.find(day => day.date === req.params.date);
 
   if(!day) {
@@ -13,19 +14,21 @@ function foodsCreate(req, res, next) {
     req.currentUser.days.push(day);
   }
 
-  const food = day.foodsEaten.create(req.body.foods);
-  day.foodsEaten.push(food);
+
+  const food = day.foods.create(req.body.food);
+  day.foods.push(food);
 
   req.currentUser.save()
     .then(() => res.json(food))
     .catch(err => {
-      console.log('ERORRRRRRRR', err); next();
+      console.log('ERORRRRRRRR', err);
+      next(err);
     });
 }
-
+// =============
 function foodsUpdate(req, res, next) {
   const day = req.currentUser.days.find(day => day.date === req.params.date);
-  const food = day.foodsEaten.id(req.params.id);
+  const food = day.foods.id(req.params.id);
 
   Object.assign(food, req.body);
 
@@ -36,7 +39,7 @@ function foodsUpdate(req, res, next) {
 
 function foodsDelete(req, res, next) {
   const day = req.currentUser.days.find(day => day.date === req.params.date);
-  const food = day.foodsEaten.id(req.params.id);
+  const food = day.foods.id(req.params.id);
   food.remove();
 
   req.currentUser.save()
