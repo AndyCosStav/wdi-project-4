@@ -9,14 +9,14 @@ import FoodsNew from '../foods/FoodsNew';
 // import FoodsSearch from '../foods/FoodsSearch';
 // import ExerciseNew from '../exercise/ExerciseNew';
 // import ExerciseEdit from '../exercise/ExerciseEdit';
-// import DaysShow from '../days/DaysShow';
+import DaysShow from '../days/DaysShow';
 
 const Routes = () => {
   return (
     <Switch>
       <ProtectedRoute exact path="/" component={LandingPage} />
-      <ProtectedRoute path="/days" component={DaysIndex} />
-      {/* <ProtectedRoute path="/days/:date" component={DaysShow} /> */}
+      <ProtectedRoute exact path="/days" component={DaysIndex} />
+      <ProtectedRoute path="/days/:date" component={DaysShow} />
       {/* <ProtectedRoute path="/search" component={FoodsSearch} /> */}
       <ProtectedRoute path="/foods/new" component={FoodsNew} />
       {/* <ProtectedRoute path="/days/:date/food/:id" component={FoodsEdit} /> */}

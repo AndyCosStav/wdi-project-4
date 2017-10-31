@@ -21,11 +21,11 @@ router.route('/days/new')
 router.route('/days/:date')
   .get(secureRoute, days.show);
 
-router.route('/days/:date/food')
+router.route('/days/:date/foods')
   .get(secureRoute,foods.index)
   .post(secureRoute,foods.create);
 
-router.route('/days/:date/food/:id')
+router.route('/days/:date/foods/:id')
   // .get(secureRoute, foods.show)
   .put(secureRoute, foods.update)
   .delete(secureRoute, foods.delete);
@@ -34,7 +34,7 @@ router.post('/register', auth.register);
 router.post('/login', auth.login);
 
 
-router.route('/days/:date/exercise')
+router.route('/days/:date/exercises')
   .get(secureRoute, exercises.index)
   .post(secureRoute, exercises.create);
 

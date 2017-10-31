@@ -4,7 +4,6 @@ import Auth from '../../lib/Auth';
 import { Link } from 'react-router-dom';
 
 import '../../scss/components/days/DaysIndex.scss';
-
 class DaysIndex extends React.Component {
 
   state = {
@@ -16,6 +15,7 @@ class DaysIndex extends React.Component {
     Axios.get('/api/days', {
       headers: { 'Authorization': `Bearer ${Auth.getToken()}` }
     })
+      // .then(res => console.log(res))
       .then(res => this.setState({ days: res.data }))
       .catch(err => console.log(err));
   }
@@ -26,7 +26,7 @@ class DaysIndex extends React.Component {
         <div className="Days">
           {this.state.days.map(day =>
             <div key={day.id}>
-              <p>{day.date}</p>
+              <Link to={ `/days/${day.date}` }>{day.date}</Link>
               {/* Add more data -- totals etc. */}
             </div>
           )}

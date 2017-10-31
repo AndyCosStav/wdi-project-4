@@ -7,7 +7,7 @@ import Routes from './components/utility/Routes';
 
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
-import FoodsNew from './components/foods/FoodsNew';
+
 
 
 class App extends React.Component {
@@ -19,14 +19,13 @@ class App extends React.Component {
           <header>
             <h1><Link to="/">LiftingLab 2.0</Link></h1>
             <h2>Eat BIG Lift HEAVY</h2>
+            <Navbar/>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            <Navbar />
             <hr />
           </header>
           <main>
             <Routes />
-            <Route path="/searchFood" component={FoodsNew} />
           </main>
         </div>
       </Router>
