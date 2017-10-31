@@ -26,12 +26,13 @@ class FoodsNew extends React.Component {
     Axios.post(`/api/days/${this.state.date}/foods`, { food: this.state.food, date: this.state.date }, {
       headers: { 'Authorization': `Bearer ${Auth.getToken()}` }
     })
-      .then(res => console.log('OUR FODDDS', res)) // redirect to days show
+      .then(() => this.setState({ food: {} })) // redirect to days show
       .catch(err => console.log(err));
   }
 
   render() {
-    console.log(this.state);
+    const { food } = this.state;
+
     return (
       <section className="FoodsNew">
         <input
@@ -45,6 +46,18 @@ class FoodsNew extends React.Component {
           addFood={this.addFood}
           handleSubmit={this.handleSubmit}
         />
+
+        {
+          food.name &&
+            <section>
+              <h3>{food.name}</h3>
+              <span>Details</span>
+              <ul>
+                <li>Calories: {food.calories}</li>
+              </ul>
+            </section>
+        }
+
         <button onClick={this.handleSubmit}>Upload Food</button>
       </section>
     );
