@@ -17,7 +17,7 @@ const LoginForm = ({ handleChange, handleSubmit, credentials, error}) => {
         <input
           type="password"
           name="password"
-          placeholder="Password"
+          placeholder="Password"  
           onChange={handleChange}
           value={credentials.password}
           className="form-control"
@@ -29,5 +29,8 @@ const LoginForm = ({ handleChange, handleSubmit, credentials, error}) => {
     </form>
   );
 };
+
+
+
 
 export default LoginForm;

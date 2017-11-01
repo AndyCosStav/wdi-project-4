@@ -4,6 +4,7 @@ import Axios from 'axios';
 class FoodsSearch extends React.Component {
 
   state = {
+    meal: '',
     foods: [],
     search: ''
   }
@@ -11,18 +12,22 @@ class FoodsSearch extends React.Component {
   handleChange = ({ target: { value }}) => {
     this.setState({ search: value });
   }
+  handleMeal = ({ target: { value }}) => {
+    this.setState({ meal: value });
 
+  }
   handleSubmit = e => {
     e.preventDefault();
     // make Axios request to /api/fatsecret
     Axios
       .get(`/api/fatsecret?search=${this.state.search}`)
-      .then(res => this.setState({ foods: res.data }))
+      .then(res => this.setState({ foods: res.data}))
       .catch(err => console.log(err));
   }
 
   addFood = (food) => {
-    this.props.addFood(food);
+    const newFood = Object.assign(food, { meal: this.state.meal });
+    this.props.addFood(newFood);
     this.setState({ foods: [], search: '' });
   }
 
@@ -36,11 +41,21 @@ class FoodsSearch extends React.Component {
             onChange={this.handleChange}
             value={this.state.search}
           />
+          <select
+            onChange={this.handleMeal}
+            value={this.state.meal}>
+            <option>Meal Time</option>
+            <option>Breakfast</option>
+            <option>Lunch</option>
+            <option>Dinner</option>
+            <option>Snack</option>
+          </select>
           <button>submit</button>
         </form>
         {this.state.foods && this.state.foods.map((food, i) => {
           return (
             <div key={i} onClick={() => this.addFood(food)}>
+              <div>{food.meal}</div>
               <div>
                 <p>{food.name}</p>
                 <p>{food.calories}</p>

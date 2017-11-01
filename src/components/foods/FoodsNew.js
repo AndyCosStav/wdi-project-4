@@ -32,7 +32,7 @@ class FoodsNew extends React.Component {
 
   render() {
     const { food } = this.state;
-
+    console.log(food);
     return (
       <section className="FoodsNew">
         <input
@@ -41,7 +41,7 @@ class FoodsNew extends React.Component {
           placeholder="YYYY-MM-DD"
           onChange={this.handleChange}
           value={this.state.date} />
-        {/* add select with breakfast/lunch/dinner/snack */}
+
         <FoodsSearch
           addFood={this.addFood}
           handleSubmit={this.handleSubmit}
@@ -51,9 +51,13 @@ class FoodsNew extends React.Component {
           food.name &&
             <section>
               <h3>{food.name}</h3>
+              <li>{food.meal}</li>
               <span>Details</span>
               <ul>
                 <li>Calories: {food.calories}</li>
+                <li>Protein: {food.protein}g</li>
+                <li>Fat: {food.fat}g</li>
+                <li>Carbs: {food.carbs}g</li>
               </ul>
             </section>
         }

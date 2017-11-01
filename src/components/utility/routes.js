@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch  } from 'react-router-dom';
+import { Switch, Route  } from 'react-router-dom';
 import ProtectedRoute from '../utility/ProtectedRoute';
 
 import DaysIndex from '../days/DaysIndex';
@@ -14,7 +14,7 @@ import DaysShow from '../days/DaysShow';
 const Routes = () => {
   return (
     <Switch>
-      <ProtectedRoute exact path="/" component={LandingPage} />
+      <Route exact path="/" component={LandingPage} />
       <ProtectedRoute exact path="/days" component={DaysIndex} />
       <ProtectedRoute path="/days/:date" component={DaysShow} />
       {/* <ProtectedRoute path="/search" component={FoodsSearch} /> */}

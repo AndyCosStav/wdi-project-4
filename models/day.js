@@ -10,10 +10,11 @@ const daySchema = new mongoose.Schema({
 //
 daySchema.virtual('totals')
   .get(function getTotals() {
-    const calories = this.foods.reduce((sum, food) => sum + food.calories * food.qty, 0);
-    const protein = this.foods.reduce((sum, food) => sum + food.protein * food.qty, 0);
-    const fat = this.foods.reduce((sum, food) => sum + food.fat * food.qty, 0);
-    const carbs = this.foods.reduce((sum, food) => sum + food.carbs * food.qty, 0);
+    const calories = this.foods.reduce((sum, food) => sum + food.calories, 0).toFixed(0);
+    const protein = this.foods.reduce((sum, food) => sum + food.protein, 0).toFixed(0);
+    const fat = this.foods.reduce((sum, food) => sum + food.fat, 0).toFixed(0);
+    const carbs = this.foods.reduce((sum, food) => sum + food.carbs, 0).toFixed(0);
+    
     return { calories, protein, fat, carbs };
   });
 
