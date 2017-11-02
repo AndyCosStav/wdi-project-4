@@ -1,17 +1,4 @@
-#loginBox {
-position: absolute;
-top: 50%;
-left: 50%;
-background: white;
-border: 2px #ccc solid;
-width: 285px;
-margin: -140px 0 0 -182px;
-padding: 20px;
-box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
-border-radius: 4px;
-}
-
-#loginImg {
+#registerImg {
   background-image: url("http://cdn-maf2.heartyhosting.com/sites/muscleandfitness.com/files/styles/full_node_image_1090x614/public/arnold-diet.jpg?itok=aLMxcZXF&timestamp=1370277176");
   background-size: cover;
   background-position: right;
@@ -25,13 +12,26 @@ border-radius: 4px;
     min-height: 100%;
 }
 
+#registerBox {
+position: absolute;
+top: 50%;
+left: 50%;
+background: white;
+border: 2px #ccc solid;
+width: 285px;
+margin: -280px 0 0 -182px;
+padding: 20px;
+box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+border-radius: 4px;
+}
+
 .logo {
 width: 80%;
 margin-left:25px;
 padding-bottom: 10px;
 }
 
-.loginBtn {
+.registerBtn {
   margin-left: 87px;
 }
 input.form-control {

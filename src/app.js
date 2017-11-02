@@ -5,6 +5,8 @@ import Register from './components/auth/Register';
 import Navbar from './components/utility/Navbar';
 import Routes from './components/utility/Routes';
 
+import './scss/components/utility/Navbar.scss';
+
 import 'bootstrap-css-only';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
