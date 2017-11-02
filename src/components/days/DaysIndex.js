@@ -21,17 +21,22 @@ class DaysIndex extends React.Component {
   }
   render() {
     return(
-      <section className="DaysIndex">
+      <section className="container DaysIndex">
         <div className="Days">
           <h3> Your Logged Days</h3>
-          {this.state.days.map(day =>
-            <div key={day.id}>
-              <Link to={ `/days/${day.date}` } className="card">{day.date}</Link>
-              {/* Add more data -- totals etc. */}
-            </div>
-          )}
-          <Link to="/foods/new"> Add New food </Link>
+          <Link to="/foods/new"> New Entry </Link>
+          <div className="row">
+            {this.state.days.map(day =>
+              <div key={day.id} className="col-md-4 card">
+                <div className="card-body">
+                  <Link to={ `/days/${day.date}` } >{day.date}</Link>
+                </div>
+              </div>
+
+            )}
+          </div>
         </div>
+
       </section>
     );
   }

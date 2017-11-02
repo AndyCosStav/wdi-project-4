@@ -1,23 +1,35 @@
-.FoodsNew {
 
-div {
+.result-wrapper {
+  margin-bottom: 15px;
+  margin-top: 40px;
+}
+
+.result {
+  background-color: #fafafa;
+  border: 1px solid lightgrey;
+  padding: 15px;
+  border-radius: 5px;
+  height: 100%;
   display: flex;
-  justify-content: space-around;
-  border-bottom: 2px solid black;
-  margin-bottom: 10px;
-  div {
-    border: none;
-    display: flex;
-    flex-direction: column;
-    p {
-      margin: 0;
+  flex-direction: column;
+
+  button {
+    margin-top: auto;
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  p {
+    margin-bottom: 5px;
+    &:last-of-type {
+      margin-bottom: 20px;
     }
   }
 }
 
 
-.foodSelect {
-  list-style: none;
+.date {
 
-}
+  border-radius: 3px;
 }

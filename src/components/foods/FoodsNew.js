@@ -35,17 +35,23 @@ class FoodsNew extends React.Component {
     console.log(food);
     return (
       <section className="FoodsNew">
-        <input
-          type="date"
-          name="date"
-          placeholder="YYYY-MM-DD"
-          onChange={this.handleChange}
-          value={this.state.date} />
+        <div className="row">
+          <div className="col-md-2">
+            <input className="date"
+              type="date"
+              name="date"
+              placeholder="YYYY-MM-DD"
+              onChange={this.handleChange}
+              value={this.state.date} />
+          </div>
+          <div className="col-md-6">
+            <FoodsSearch
+              addFood={this.addFood}
+              handleSubmit={this.handleSubmit}
+            />
+          </div>
+        </div>
 
-        <FoodsSearch
-          addFood={this.addFood}
-          handleSubmit={this.handleSubmit}
-        />
 
         {
           food.name &&
@@ -60,10 +66,13 @@ class FoodsNew extends React.Component {
                 <li>Carbs: {food.carbs}g</li>
               </ul>
             </section>
+
         }
 
-        <button onClick={this.handleSubmit}>Upload Food</button>
+
+        <button className="btn btn-primary" onClick={this.handleSubmit}>Upload Food</button>
       </section>
+
     );
   }
 }

@@ -34,44 +34,50 @@ class FoodsSearch extends React.Component {
   render() {
     console.log(this.state.foods);
     return (
-      <div className="list-group" >
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="search"
-            onChange={this.handleChange}
-            value={this.state.search}
-          />
-          <select
-            onChange={this.handleMeal}
-            value={this.state.meal}>
-            <option>Meal Time</option>
-            <option>Breakfast</option>
-            <option>Lunch</option>
-            <option>Dinner</option>
-            <option>Snack</option>
-          </select>
-          <button>submit</button>
-        </form>
-        {this.state.foods && this.state.foods.map((food, i) => {
-          return (
-            <div key={i} onClick={() => this.addFood(food)} id="results" className="list-group-item list-group-item-action flex-column align-items-start active">
-              <h3>{food.meal}</h3>
-              <p>{food.name}
-                {food.calories}kcal
+      <div className="row">
+        <div className="col-md-12">
+          <form onSubmit={this.handleSubmit}>
+            <input className="foodBar"
+              type="search"
+              onChange={this.handleChange}
+              value={this.state.search}
+            />
+            <select
+              className="btn btn-lg btn-primary mealDrop"
+              onChange={this.handleMeal}
+              value={this.state.meal}>
+              <option>Meal Time</option>
+              <option>Breakfast</option>
+              <option>Lunch</option>
+              <option>Dinner</option>
+              <option>Snack</option>
+            </select>
+            <button className="btn btn-primary searchFood">Search Foods</button>
+          </form>
+        </div>
+        <div className="row">
+          {this.state.foods && this.state.foods.map((food, i) => {
+            return (
+              <div key={i} onClick={() => this.addFood(food)} className="col-md-3 col-sm-6 days-wrapper">
+                <div className="result">
+                  <div>
+                    <h3>{food.meal}</h3>
+                    <h3>{food.name}</h3>
+                    <p>{food.calories}kcal</p>
+                    <p>Carbs = {food.carbs}g</p>
+                    <p>Fat = {food.fat}g</p>
+                    <p>Protein = {food.protein}g</p>
+                    <p>Per{food.per}g</p>
+                  </div>
 
-
-                Carbs = {food.carbs}g
-                Fat = {food.fat}g
-                Protein = {food.protein}g
-                Per{food.per}g</p>
-
-              <div>
-                <button>Add</button>
+                  <button className="btn btn-lg btn-primary">Add</button>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
+      // </div>
     );
   }
 

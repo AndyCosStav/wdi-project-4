@@ -81,7 +81,7 @@ function FoodsForm({ handleSubmit, handleChange, exercise, errors }) {
           {errors.fat && <small className="has-error">{errors.fat}</small>}
         </div>
         <div>
-          <button className="save-button">Save</button>
+          <button className="save-button btn btn-primary">Save</button>
         </div>
       </form>
     </div>
