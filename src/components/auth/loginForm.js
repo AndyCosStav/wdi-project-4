@@ -9,6 +9,7 @@ const LoginForm = ({ handleChange, handleSubmit, credentials, error}) => {
       <div id="loginBox">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
+            <img src="./assets/dinnerandy.png" className="logo"/>
             <input
               type="text"
               name="email"
@@ -18,7 +19,7 @@ const LoginForm = ({ handleChange, handleSubmit, credentials, error}) => {
               className="form-control"
             />
           </div>
-          <div className="form-group">
+          <div className="form-group" >
             <input
               type="password"
               name="password"
@@ -30,7 +31,7 @@ const LoginForm = ({ handleChange, handleSubmit, credentials, error}) => {
             {error && <small className="has-error">{error}</small>}
           </div>
 
-          <button className="btn btn-primary">Login</button>
+          <button className="btn btn-primary loginBtn">Login</button>
         </form>
       </div>
     </div>
