@@ -7,7 +7,7 @@ import Routes from './components/utility/Routes';
 
 import 'bootstrap-css-only';
 
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 
@@ -19,14 +19,14 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <header>
-            <h1><Link to="/">LiftingLab 2.0</Link></h1>
+
             <Navbar/>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
-            <hr />
+            <Routes />
           </header>
           <main>
-            <Routes />
+
           </main>
         </div>
       </Router>

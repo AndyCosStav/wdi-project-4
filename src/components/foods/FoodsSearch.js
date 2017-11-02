@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-
+import '../../scss/components/foods/FoodsSearch.scss';
 class FoodsSearch extends React.Component {
 
   state = {
@@ -34,7 +34,7 @@ class FoodsSearch extends React.Component {
   render() {
     console.log(this.state.foods);
     return (
-      <div>
+      <div className="list-group" >
         <form onSubmit={this.handleSubmit}>
           <input
             type="search"
@@ -54,18 +54,17 @@ class FoodsSearch extends React.Component {
         </form>
         {this.state.foods && this.state.foods.map((food, i) => {
           return (
-            <div key={i} onClick={() => this.addFood(food)}>
-              <div>{food.meal}</div>
-              <div>
-                <p>{food.name}</p>
-                <p>{food.calories}</p>
-              </div>
-              <div>
-                <p>Carbs = {food.carbs}g</p>
-                <p>Fat = {food.fat}g</p>
-                <p>Protein = {food.protein}g</p>
-                <p>Per{food.per}g</p>
-              </div>
+            <div key={i} onClick={() => this.addFood(food)} id="results" className="list-group-item list-group-item-action flex-column align-items-start active">
+              <h3>{food.meal}</h3>
+              <p>{food.name}
+                {food.calories}kcal
+
+
+                Carbs = {food.carbs}g
+                Fat = {food.fat}g
+                Protein = {food.protein}g
+                Per{food.per}g</p>
+
               <div>
                 <button>Add</button>
               </div>

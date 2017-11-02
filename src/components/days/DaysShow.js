@@ -78,6 +78,9 @@ class DaysShow extends React.Component {
               <h2>Totals:</h2>
               <ul>
                 <li>Calories: {this.state.day.totals.calories}</li>
+                <li>Protein: {this.state.day.totals.protein}</li>
+                <li>Carbs: {this.state.day.totals.carbs}</li>
+                <li>Fat: {this.state.day.totals.fat}</li>
               </ul>
             </div>
             :

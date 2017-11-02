@@ -13,11 +13,12 @@ const Navbar = ({ history }) => {
   }
 
   return(
-    <nav>
-      {!Auth.isAuthenticated() && <Link to="/login" className="standard-button">Login</Link>}
-      {!Auth.isAuthenticated() && <Link to="/register" className="standard-button">Register</Link>}
-      {Auth.isAuthenticated() && <Link to="/days" className="standard-button">My Diary</Link>}
-      {Auth.isAuthenticated() && <a href="#" onClick={logout} className="standard-button">Logout</a>}
+    <nav className="navbar">
+      <h1 className="navbar-brand"><Link to="/">LiftingLab 2.0</Link></h1>
+      {!Auth.isAuthenticated() && <Link to="/login" className="nav-item">Login</Link>}
+      {!Auth.isAuthenticated() && <Link to="/register" className="nav-item">Register</Link>}
+      {Auth.isAuthenticated() && <Link to="/days" className="nav-item">My Diary</Link>}
+      {Auth.isAuthenticated() && <a href="#" onClick={logout} className="nav-item">Logout</a>}
     </nav>
   );
 };

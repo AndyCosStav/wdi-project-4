@@ -19,14 +19,14 @@ class DaysIndex extends React.Component {
       .then(res => this.setState({ days: res.data }))
       .catch(err => console.log(err));
   }
-
   render() {
     return(
       <section className="DaysIndex">
         <div className="Days">
+          <h3> Your Logged Days</h3>
           {this.state.days.map(day =>
             <div key={day.id}>
-              <Link to={ `/days/${day.date}` }>{day.date}</Link>
+              <Link to={ `/days/${day.date}` } className="card">{day.date}</Link>
               {/* Add more data -- totals etc. */}
             </div>
           )}
