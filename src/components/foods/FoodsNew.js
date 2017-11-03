@@ -45,10 +45,7 @@ class FoodsNew extends React.Component {
               value={this.state.date} />
           </div>
           <div className="col-md-6">
-            <FoodsSearch
-              addFood={this.addFood}
-              handleSubmit={this.handleSubmit}
-            />
+            <FoodsSearch addFood={this.addFood} />
           </div>
         </div>
 
