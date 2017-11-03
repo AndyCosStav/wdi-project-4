@@ -1,25 +1,11 @@
-// .DaysIndex {
-//   div {
-//     display: flex;
-//     flex-direction: column;
-//     .DaysForm {
-//       display: flex;
-//       justify-content: space-around;
-//     }
-//     .Days {
-//       display: flex;
-//       flex-wrap: wrap;
-//       border: 2px solid black;
-//       background-color: grey;
-//       a {
-//         color: white;
-//         text-decoration: none;
-//       }
-//       width: 200px;
-//     }
-//   }
-//
-//
-//
-//
-// }
+.indexDay {
+
+text-align: center;
+width:auto;
+font-size: 20px;
+}
+
+.topOfBox{
+  margin-bottom: 1000px;
+
+}

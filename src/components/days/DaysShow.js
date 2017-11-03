@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import Axios from 'axios';
 import Auth from '../../lib/Auth';
-
+import '../../scss/components/days/DaysShow.scss';
 
 class DaysShow extends React.Component {
 
@@ -37,15 +37,15 @@ class DaysShow extends React.Component {
   renderMeals = (meal, i) => {
     return (
       <div key={i}>
-        <h2>{meal}</h2>
+        <h2 className="eatenFood" >{meal}</h2>
 
         {
           this.state.day && this.state.day.foods.filter(food => {
             return food.meal === meal;
           }).map(food => {
             return(
-              <div key={food.id}>
-                <p>
+              <div key={food.id} className="row">
+                <p className="eatenFood">
                   {
                     `${food.name}: ${food.calories}Kcal, Protein = ${food.protein}g,
                     Carbs = ${food.carbs}g, Fat = ${food.fat}g`
@@ -53,8 +53,8 @@ class DaysShow extends React.Component {
                 </p>
                 {
                   Auth.isAuthenticated() &&
-                    <button className="delete-Button" onClick={() => this.deleteFood(food.id)}>
-                      Delete Food
+                    <button className="btn btn-sm btn-primary delete" onClick={() => this.deleteFood(food.id)}>
+                      Delete
                     </button>
                 }
               </div>
@@ -75,12 +75,12 @@ class DaysShow extends React.Component {
         {
           this.state.day ?
             <div>
-              <h2>Totals:</h2>
+              <h4 className="eatenFood">You have Consumed:</h4>
               <ul>
-                <li>Calories: {this.state.day.totals.calories}</li>
-                <li>Protein: {this.state.day.totals.protein}</li>
-                <li>Carbs: {this.state.day.totals.carbs}</li>
-                <li>Fat: {this.state.day.totals.fat}</li>
+                <li>Calories: {this.state.day.totals.calories}kcal</li>
+                <li>Protein: {this.state.day.totals.protein}g</li>
+                <li>Carbs: {this.state.day.totals.carbs}g</li>
+                <li>Fat: {this.state.day.totals.fat}g</li>
               </ul>
             </div>
             :

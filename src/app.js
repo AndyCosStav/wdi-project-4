@@ -6,6 +6,7 @@ import Navbar from './components/utility/Navbar';
 import Routes from './components/utility/Routes';
 
 import './scss/components/utility/Navbar.scss';
+import './scss/style.scss';
 
 import 'bootstrap-css-only';
 

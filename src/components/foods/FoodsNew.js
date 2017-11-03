@@ -55,12 +55,12 @@ class FoodsNew extends React.Component {
 
         {
           food.name &&
-            <section>
+            <section className="foodSelect">
               <h3>{food.name}</h3>
               <h5>{food.meal}</h5>
               <span>Macronutrients</span>
-              <ul className="foodSelect">
-                <li>Calories: {food.calories}</li>
+              <ul>
+                <li>Calories: {food.calories}Kcal</li>
                 <li>Protein: {food.protein}g</li>
                 <li>Fat: {food.fat}g</li>
                 <li>Carbs: {food.carbs}g</li>

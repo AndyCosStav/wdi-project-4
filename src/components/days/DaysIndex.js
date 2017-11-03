@@ -24,11 +24,11 @@ class DaysIndex extends React.Component {
       <section className="container DaysIndex">
         <div className="Days">
           <h3> Your Logged Days</h3>
-          <Link to="/foods/new"> New Entry </Link>
+          <Link to="/foods/new" className="topOfBox"> New Entry </Link>
           <div className="row">
             {this.state.days.map(day =>
               <div key={day.id} className="col-md-4 card">
-                <div className="card-body">
+                <div className="card-body indexDay">
                   <Link to={ `/days/${day.date}` } >{day.date}</Link>
                 </div>
               </div>
